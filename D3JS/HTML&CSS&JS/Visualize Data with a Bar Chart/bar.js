@@ -12,8 +12,8 @@ const barChart = async () => {
 
   //Drawing and setting our dimensions.
   let dimensions = {
-    width: window.innerWidth * 0.8,
-    height: window.innerHeight * 0.5,
+    width: Math.ceil(window.innerWidth * 0.7),
+    height: Math.ceil(window.innerHeight * 0.4),
     margin: {
       top: 10,
       right: 10,
