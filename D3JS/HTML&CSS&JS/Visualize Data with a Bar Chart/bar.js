@@ -52,6 +52,6 @@ const barChart = async () => {
       .scaleTime()
       .domain(d3.extent(data, xAccessor))
       .range([0, dimensions.boundedWidth]);
-    console.log(xScale(23))
+    console.log(xScale.domain())
 };
 barChart();
