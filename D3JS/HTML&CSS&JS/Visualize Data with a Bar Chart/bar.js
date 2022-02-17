@@ -33,7 +33,7 @@ const barChart = async () => {
     .attr("width", dimensions.width)
     .attr("height", dimensions.height);
 
-  const g = wrapper
+  const bounds = wrapper
     .append("g")
     .style(
       "transform",
@@ -42,16 +42,16 @@ const barChart = async () => {
 
   //Setting ou scale.
 
-    yScale = d3
-      .scaleLinear()
-      .domain(d3.extent(data, yAccessor))
-      .range([dimensions.boundedHeight, 0]);
-    console.log(yScale(32));
+  yScale = d3
+    .scaleLinear()
+    .domain(d3.extent(data, yAccessor))
+    .range([dimensions.boundedHeight, 0]);
+  console.log(yScale);
 
-    xScale = d3
-      .scaleTime()
-      .domain(d3.extent(data, xAccessor))
-      .range([0, dimensions.boundedWidth]);
-    console.log(xScale.domain())
+  xScale = d3.time
+    .scale()
+    .domain(d3.extent(data, xAccessor))
+    .range([0, dimensions.boundedWidth]);
+  console.log(xScale);
 };
 barChart();
