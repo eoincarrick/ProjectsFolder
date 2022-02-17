@@ -4,10 +4,10 @@ const barChart = async () => {
     "https://raw.githubusercontent.com/freeCodeCamp/ProjectReferenceData/master/GDP-data.json"
   );
   dataset = data;
-  console.log();
-  const yAccessor = (d) => d.data[1][1];
+
+  const yAccessor = (d) => d.data[0][1];
   const dateParse = d3.timeParse("%Y-%m-%d");
-  const xAccessor = (d) => dateParse(d.data[1][0]);
+  const xAccessor = (d) => dateParse(d.data[0][0]);
   console.log(xAccessor);
 
   //Drawing and setting our dimensions.
@@ -42,16 +42,16 @@ const barChart = async () => {
 
   //Setting ou scale.
 
-  //   yScale = d3
-  //     .scaleLinear()
-  //     .domain(d3.extent(data, yAccessor))
-  //     .range([dimensions.boundedHeight, 0]);
-  //   console.log(yScale(32));
+    yScale = d3
+      .scaleLinear()
+      .domain(d3.extent(data, yAccessor))
+      .range([dimensions.boundedHeight, 0]);
+    console.log(yScale(32));
 
-  //   xScale = d3
-  //     .scaleTime()
-  //     .domain(d3.extent(data, xAccessor))
-  //     .range([0, dimensions.boundedWidth]);
-  //   console.log(xScale(23))
+    xScale = d3
+      .scaleTime()
+      .domain(d3.extent(data, xAccessor))
+      .range([0, dimensions.boundedWidth]);
+    console.log(xScale(23))
 };
 barChart();
