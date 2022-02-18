@@ -47,6 +47,7 @@ const barChart = async () => {
     .domain(d3.extent(data, yAccessor))
     .range([dimensions.boundedHeight, 0]);
   console.log(yScale);
+  
 
   xScale = d3.time
     .scale()
